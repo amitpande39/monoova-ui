@@ -1,0 +1,6 @@
+chromeDriverPath=./src/utility/chromedriver
+baseURL=https://mtp-testing.azurewebsites.net/user/login
+fakeEmailURL=https://emailfake.com/
+documentPath=src/test/java/com/automatedtest/testdata/
+chromeDriver=webdriver.chrome.driver
+waitTime=30
