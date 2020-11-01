@@ -41,6 +41,7 @@ public class DashBoard extends BasePage {
 
     public void createNewAutoMatherAccount() {
         selectFromMenuList("RECEIVE");
+        helper.waitForElementToDisplay(accountList.get(0), "wait for account element.");
         selectAutoMatcherAccount("Create Automatcher Account");
         bankAccountName.sendKeys("MyTestAccount" + RandomString.make(5));
         clientUniqueId.sendKeys(RandomString.make(15));

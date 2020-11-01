@@ -66,6 +66,9 @@ public class RegisterPage extends BasePage {
     @FindBy(css = "h1.MuiTypography-noWrap")
     private WebElement dashBoardHeading;
 
+    @FindBy(css = "td div h1")
+    private WebElement emailHeading;
+
     String customerEmail = getEmail();
 
     public RegisterPage() {
@@ -98,7 +101,10 @@ public class RegisterPage extends BasePage {
         helper.waitForElementToDisplay(this.domainName, "domain name");
         this.domainName.sendKeys(Keys.chord(Keys.COMMAND, "a"), "sceenic.com");
         this.domainName.sendKeys(Keys.TAB);
-        driver.navigate().refresh();
+        helper.waitForElementToDisplay(emailHeading, "welcome email heading");
+        if (!this.emailHeading.isDisplayed()) {
+            driver.navigate().refresh();
+        }
         helper.waitForElementToDisplay(this.verifyEmailBody, "email body verification link");
         this.verifyEmailBody.click();
     }
